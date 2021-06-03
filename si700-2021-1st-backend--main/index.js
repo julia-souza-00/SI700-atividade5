@@ -26,8 +26,14 @@ app.get(endpoint, function(req, res){
 app.get(`${endpoint}/:email/:password`, function(req, res){
    
     const email = req.params.email;
-    const user = users[email];
-    
+    const user = null;
+
+    for (var obj in users){
+        if(obj.email == email){
+            user = obj;
+        }
+    }
+        
     if (!user){
         res.send("Esse email não existe!");
     } else {
