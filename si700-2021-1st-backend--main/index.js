@@ -25,17 +25,14 @@ app.get(endpoint, function(req, res){
 
 app.get(`${endpoint}/:email/:password`, function(req, res){
    
-    /*const id = req.params.id;
-    const note = users[id];*/
-    var data =  {
-            "email": req.params.email,
-            "password": req.params.password
-        }
-
-    if (!data){
+    const email = req.params.email;
+    const password = req.params.email;
+    const note = users[email][password];
+    
+    if (!note){
         res.send("{}");
     } else {
-        res.send(data);
+        res.send(note);
     }   
 });
 
