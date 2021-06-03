@@ -14,8 +14,7 @@ app.get('/', function(req, res){res.send('Hello world')});
 */
 
 const users = [
-    {id: 0, name: "Julia de Souza dos Santos", birthdate : "05/05/2000", email: "julia@gmail.com", password: "senha1234567", gender: 1},
-    {id: 1, name: "Carolina da Silva Sancho", birthdate : "04/12/1999", email: "carol@gmail.com", password: "senhaabcdefg", gender: 1}
+    {id: 0, name: "Julia de Souza dos Santos", birthdate : "05/05/2000", email: "julia@gmail.com", password: "senha1234567", gender: 1}
 ]
 
 const endpoint = "/users";
