@@ -36,7 +36,7 @@ app.get(`${endpoint}/:email/:password`, function(req, res){
     });
         
    if (!user){
-        res.send(0);
+        res.send("hi");
     } else {
         res.send(user);
     }   
