@@ -27,9 +27,9 @@ app.get(`${endpoint}/:email/:password`, function(req, res){
     const email = req.params.email;
     var user;
 
-    for (var obj in users){
-       res.send(obj);
-    }
+    users.forEach(function(value){
+        res.send(value);
+    });
         
    /* if (!user){
         res.send(user);
