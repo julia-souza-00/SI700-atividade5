@@ -17,7 +17,7 @@ const users = [
 
 const endpoint = "/users";
 
-app.get(`${endpoint}/:email&:password`, function(req, res){
+app.get(`${endpoint}/:email/:password`, function(req, res){
     const email = req.params.email;
     const password = req.params.password;
     var user = null;
