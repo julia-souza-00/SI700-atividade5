@@ -27,12 +27,10 @@ app.get(`${endpoint}/:email/:password`, function(req, res){
    
     /*const id = req.params.id;
     const note = users[id];*/
-    var data = {
-        "${endpoint}": {
+    var data =  {
             "email": req.params.email,
             "password": req.params.password
         }
-    }; 
 
     if (!data){
         res.send("{}");
