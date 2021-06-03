@@ -25,14 +25,17 @@ app.get(endpoint, function(req, res){
 
 app.get(`${endpoint}/:email/:password`, function(req, res){
    
-    const email = req.params.email;
-    const password = req.params.password;
-    const user = users[email][password];
-   
+    const user = req.params.email;
+    
     if (!user){
-        res.send("{}");
+        res.send("Esse email não existe!");
     } else {
-        res.send(user);
+        if(user.password == req.params.password){
+            res.send(user);
+        }
+        else {
+            res.send("Senha incorreta!");
+        }
     }   
 });
 
