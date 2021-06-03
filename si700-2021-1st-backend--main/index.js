@@ -5,6 +5,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 // app.listen(3000);
+
+
 app.get('/', function(req, res){res.send('Hello world')});
 
 /*
@@ -13,19 +15,23 @@ app.get('/', function(req, res){res.send('Hello world')});
 
 const users = [
     {id: 0, name: "Julia de Souza dos Santos", birthdate : "05/05/2000", email: "julia@gmail.com", password: "senha1234567", gender: 1},
+    {id: 1, name: "Carolina da Silva Sancho", birthdate : "04/12/1999", email: "carol@gmail.com", password: "senhaabcdefg", gender: 1}
 ]
 
 const endpoint = "/users";
 
+app.get(endpoint, function(req, res){
+    res.send(users.filter(Boolean));
+});
+
 app.get(`${endpoint}/:email/:password`, function(req, res){
     const email = req.params.email;
     const password = req.params.password;
-    var user = null;
+    var user = users[-1];
 
     users.forEach(function(value){
         if(value.email == email && value.password == password){
             user = value;
-            break;
         }
     });
         
@@ -52,9 +58,6 @@ app.post(endpoint, (req, res) => {
     notify();
 });
 
-/*app.get(endpoint, function(req, res){
-    res.send(users.filter(Boolean));
-});*/
 /*
 app.put(`${endpoint}/:id`, (req, res) =>{
     const id = parseInt(req.params.id);
