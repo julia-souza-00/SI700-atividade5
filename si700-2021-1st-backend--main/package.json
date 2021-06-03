@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ulissesdias/si700-2021-1st-backend-.git"
+    "url": "git+https://github.com/julia-souza-00/si700-2021-1st-backend-.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ulissesdias/si700-2021-1st-backend-/issues"
+    "url": "https://github.com/julia-souza-00/si700-2021-1st-backend-/issues"
   },
-  "homepage": "https://github.com/ulissesdias/si700-2021-1st-backend-#readme",
+  "homepage": "https://github.com/julia-souza-00/si700-2021-1st-backend-#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",

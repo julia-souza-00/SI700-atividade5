@@ -13,40 +13,51 @@ app.get('/', function(req, res){res.send('Hello world')});
   Servidor propriamente dito
 */
 
-const notes = [
-    {id: 0, title: "Vinícius Nonato Rodrigues", description : "Aluno da Unicamp feliz"},
-    {id: 1, title: "Carolina da Silva Sancho", description : "Aluna da Unicamp não tão feliz"}
+const users = [
+    {id: 0, name: "Julia de Souza dos Santos", birthdate : "05/05/2000", email: "julia@gmail.com", password: "senha1234567", gender: 1},
 ]
 
-const endpoint = "/notes";
+const endpoint = "/users";
 
 app.get(endpoint, function(req, res){
-    res.send(notes.filter(Boolean));
+    res.send(users.filter(Boolean));
 });
 
-app.get(`${endpoint}/:id`, function(req, res){
-    const id = req.params.id;
-    const note = notes[id];
+app.get(`${endpoint}/:email/:password`, function(req, res){
+   
+    /*const id = req.params.id;
+    const note = users[id];*/
+    var data = {
+        "${endpoint}": {
+            "email": req.params.email,
+            "password": req.params.password
+        }
+    }; 
 
-    if (!note){
+    if (!data){
         res.send("{}");
     } else {
-        res.send(note);
+        res.send(data);
     }   
 });
 
 app.post(endpoint, (req, res) => {
-    const note = {
-        id : notes.length,
-        title : req.body["title"],
-        description : req.body["description"]
+    const user = {
+        id : users.length,
+        name : req.body["name"],
+        birthdate : req.body["birthdate"],
+        email : req.body["email"],
+        password : req.body["password"],
+        gender : req.body["gender"],
     };
-    notes.push(note);
+
+    users.push(user);
     res.send("1");
 
     notify();
 });
 
+/*
 app.put(`${endpoint}/:id`, (req, res) =>{
     const id = parseInt(req.params.id);
     const note = {
@@ -55,7 +66,7 @@ app.put(`${endpoint}/:id`, (req, res) =>{
         description : req.body["description"]
     };
 
-    notes[id] = note;
+    users[id] = note;
     res.send("1");
 
     notify();
@@ -63,14 +74,14 @@ app.put(`${endpoint}/:id`, (req, res) =>{
 
 app.delete(`${endpoint}/:id`, (req, res) => {
     const id = req.params.id;
-    delete notes[id];
+    delete users[id];
     res.send("1");
 
     // Notificar todos
     notify();
 });
 
-
+*/
 /*
   Criar um socket para notificar usuários das mudanças.
 */
