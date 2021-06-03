@@ -52,9 +52,9 @@ app.post(endpoint, (req, res) => {
     notify();
 });
 
-app.get(endpoint, function(req, res){
+/*app.get(endpoint, function(req, res){
     res.send(users.filter(Boolean));
-});
+});*/
 /*
 app.put(`${endpoint}/:id`, (req, res) =>{
     const id = parseInt(req.params.id);
