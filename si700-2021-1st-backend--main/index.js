@@ -31,7 +31,6 @@ app.get(`${endpoint}/:email&:password`, function(req, res){
     users.forEach(function(value){
         if(value.email == email && value.password == password){
             user = value;
-            break;
         }
     });
         
