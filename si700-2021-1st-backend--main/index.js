@@ -23,7 +23,7 @@ app.get(endpoint, function(req, res){
     res.send(users.filter(Boolean));
 });
 
-app.get(`${endpoint}/:email/:password`, function(req, res){
+app.get(`${endpoint}/:email&:password`, function(req, res){
     const email = req.params.email;
     const password = req.params.password;
     var user = users[-1];
