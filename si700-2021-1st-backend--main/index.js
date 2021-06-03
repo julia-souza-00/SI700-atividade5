@@ -28,21 +28,14 @@ app.get(`${endpoint}/:email/:password`, function(req, res){
     var user;
 
     for (var obj in users){
-        if(obj.email == email){
-            user = obj;
-        }
+       res.send(obj);
     }
         
-    if (!user){
+   /* if (!user){
         res.send(user);
     } else {
-        if(user.password == req.params.password){
-            res.send(user);
-        }
-        else {
-            res.send("Senha incorreta!");
-        }
-    }   
+        res.send(user);
+    }   */
 });
 
 app.post(endpoint, (req, res) => {
