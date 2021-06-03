@@ -15,7 +15,7 @@ app.get('/', function(req, res){res.send('Hello world')});
 
 const users = [
     {id: 0, name: "Julia de Souza dos Santos", birthdate : "05/05/2000", email: "julia@gmail.com", password: "senha1234567", gender: 1},
-    {id: 1, name: "Ana Carolina da Silva Sancho", birthdate : "04/12/1999", email: "carol@gmail.com", password: "senhaabcdefg", gender: 1}
+    {id: 1, name: "Carolina da Silva Sancho", birthdate : "04/12/1999", email: "carol@gmail.com", password: "senhaabcdefg", gender: 1}
 ]
 
 const endpoint = "/users";
@@ -26,19 +26,20 @@ app.get(endpoint, function(req, res){
 
 app.get(`${endpoint}/:email/:password`, function(req, res){
     const email = req.params.email;
-    var user;
+    const password = req.params.password;
+    var user = users[-1];
 
     users.forEach(function(value){
-        if(value.email == email){
-            res.send(value);
+        if(value.email == email && value.password == password){
+            user = value;
         }
     });
         
-   /* if (!user){
-        res.send(user);
+   if (!user){
+        res.send("Usuário não cadastrado!");
     } else {
         res.send(user);
-    }   */
+    }   
 });
 
 app.post(endpoint, (req, res) => {
