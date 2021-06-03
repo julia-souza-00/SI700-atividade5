@@ -26,7 +26,7 @@ app.get(endpoint, function(req, res){
 app.get(`${endpoint}/:email&:password`, function(req, res){
     const email = req.params.email;
     const password = req.params.password;
-    var user = users[-1];
+    var user = null;
 
     users.forEach(function(value){
         if(value.email == email && value.password == password){
