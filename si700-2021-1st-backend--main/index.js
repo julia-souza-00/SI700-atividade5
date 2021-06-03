@@ -15,6 +15,7 @@ app.get('/', function(req, res){res.send('Hello world')});
 
 const users = [
     {id: 0, name: "Julia de Souza dos Santos", birthdate : "05/05/2000", email: "julia@gmail.com", password: "senha1234567", gender: 1},
+    {id: 1, name: "Ana Carolina da Silva Sancho", birthdate : "04/12/1999", email: "carol@gmail.com", password: "senhaabcdefg", gender: 1}
 ]
 
 const endpoint = "/users";
@@ -28,7 +29,9 @@ app.get(`${endpoint}/:email/:password`, function(req, res){
     var user;
 
     users.forEach(function(value){
-        res.send(value);
+        if(value.email == email){
+            res.send(value);
+        }
     });
         
    /* if (!user){
